@@ -3,8 +3,8 @@ using System.Reflection.Metadata.Ecma335;
 
 Console.WriteLine("Введите строку");
 string? text = Console.ReadLine();
-
-string[] textArray = text.Split(" ");
+char[] delimiterChars = [' ', ',', '.', ':', '\t'];
+string[] textArray = text.Split(delimiterChars);
 
 GetMaxNum(textArray);
 GetMaxWord(textArray);
