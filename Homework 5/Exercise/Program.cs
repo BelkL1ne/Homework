@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
@@ -7,23 +8,45 @@ string? text = Console.ReadLine();
 char[] delimiterChars = [' ', ',', '.', ':', '\t'];
 string[] textArray = text.Split(delimiterChars);
 
-GetMaxNum(textArray);
-GetMaxWord(textArray);
-NumReplace(text);
+Console.WriteLine("Выберите действие: 1 - Найти слова, содержащие максимальное количество цифр.\r\n2 - Найти самое длинное слово и определить, сколько раз оно встретилось в тексте.\r\n3 - Заменить цифры от 0 до 9 на слова «ноль», «один», …, «девять».");
+string? operation = Console.ReadLine();
+switch (operation)
+{
+    case "1":
+        {
+            GetMaxNum(textArray);
+            break;
+        }
+    case "2":
+        {
+            GetMaxWord(textArray);
+            break;
+        }
+    case "3":
+        {
+            NumReplace(text);
+            break;
+        }
+    default:
+        {
+            Console.WriteLine("Некорректный ввод.");
+            break;
+        }
+}
 
 static void NumReplace(string text)
 {
     var sb = new StringBuilder(text);
-    sb.Replace("0", "Ноль");
-    sb.Replace("1", "Один");
-    sb.Replace("2", "Два");
-    sb.Replace("3", "Три");
-    sb.Replace("4", "Четыре");
-    sb.Replace("5", "Пять");
-    sb.Replace("6", "Шесть");
-    sb.Replace("7", "Семь");
-    sb.Replace("8", "Восемь");
-    sb.Replace("9", "Демять");
+    sb.Replace("0", "ноль");
+    sb.Replace("1", "один");
+    sb.Replace("2", "два");
+    sb.Replace("3", "три");
+    sb.Replace("4", "четыре");
+    sb.Replace("5", "пять");
+    sb.Replace("6", "шесть");
+    sb.Replace("7", "семь");
+    sb.Replace("8", "восемь");
+    sb.Replace("9", "девять");
     string sbStr = sb.ToString();
     Console.WriteLine(sbStr);
 }
