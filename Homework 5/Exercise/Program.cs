@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection.Metadata.Ecma335;
+using System.Text;
 
 Console.WriteLine("Введите строку");
 string? text = Console.ReadLine();
@@ -8,7 +9,24 @@ string[] textArray = text.Split(delimiterChars);
 
 GetMaxNum(textArray);
 GetMaxWord(textArray);
+NumReplace(text);
 
+static void NumReplace(string text)
+{
+    var sb = new StringBuilder(text);
+    sb.Replace("0", "Ноль");
+    sb.Replace("1", "Один");
+    sb.Replace("2", "Два");
+    sb.Replace("3", "Три");
+    sb.Replace("4", "Четыре");
+    sb.Replace("5", "Пять");
+    sb.Replace("6", "Шесть");
+    sb.Replace("7", "Семь");
+    sb.Replace("8", "Восемь");
+    sb.Replace("9", "Демять");
+    string sbStr = sb.ToString();
+    Console.WriteLine(sbStr);
+}
 static void GetMaxNum(string[] textArray)
 {
     int index = 0;
